@@ -23,6 +23,15 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+
+  /* NOTE: Container Queries can be a better fit for this! */
+  @media ${QUERIES.tabletOnly} {
+    grid-template-areas:
+      "image"
+      "heading"
+      "abstract";
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Image = styled.img`
@@ -55,14 +64,6 @@ const Abstract = styled.p`
   overflow: hidden;
   /* Prevent the default alignment from showing the truncated text anyway */
   align-self: start;
-
-  /* @media ${QUERIES.tabletAndUp} {
-    -webkit-line-clamp: 16;
-  }
-
-  @media ${QUERIES.laptopAndUp} {
-    -webkit-line-clamp: 10;
-  } */
 `;
 
 export default SecondaryStory;
